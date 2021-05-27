@@ -20,6 +20,12 @@ df[categorical] = ord_enc.fit_transform(df[categorical])
 X = df.loc[ : , df.columns != 'y']
 y = df['y']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+#%% plot before preprocessing
+sns.lmplot(x='balance', y='duration', data=pd.concat([X_train,y_train], axis=1), hue='y', fit_reg=False, scatter_kws={ "alpha":0.2})
+plt.title("Before preprocessing")
+plt.show()
+print("class balance before preprocessing:")
+y_train.value_counts()
 # %% removing outliers
 outliers = (np.abs(stats.zscore(X_train[continuous])) < 3).all(axis=1)
 X_train = X_train[outliers]
@@ -34,13 +40,13 @@ categorical_index = map(df.columns.get_loc, categorical)
 categorical_index = list(categorical_index)
 X_resampled, y_resampled = SMOTENC(categorical_features=categorical_index, random_state=0).fit_resample(X_train, y_train)
 df_resampled = pd.concat([X_resampled,y_resampled], axis=1)
-# %% oversampling plots
-sns.lmplot(x='balance', y='duration', data=pd.concat([X_train,y_train], axis=1), hue='y', fit_reg=False)
-plt.title("Before oversampling")
+
+# %% plot after preprocessing
+sns.lmplot(x='balance', y='duration', data=df_resampled, hue='y', fit_reg=False, scatter_kws={ "alpha":0.2})
+plt.title("After preprocessing")
 plt.show()
-sns.lmplot(x='balance', y='duration', data=df_resampled, hue='y', fit_reg=False)
-plt.title("After oversampling")
-plt.show()
+print("class balance after preprocessing:")
+y_resampled.value_counts()
 # %% saving changes
 df_resampled.to_csv('preprocessed_train.csv')
 pd.concat([X_test,y_test], axis=1).to_csv('preprocessed_test.csv')
