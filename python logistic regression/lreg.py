@@ -21,7 +21,11 @@ print(len(y_train[y_train == 1]))
 print(len(y_test[y_test == 2]))
 print(len(y_test[y_test == 1]))
 # %%
-clf = LogisticRegression(random_state=0).fit(X_train, y_train)
+clf = LogisticRegression(
+    solver='saga',
+    class_weight='balanced',
+    random_state=0
+    ).fit(X_train, y_train)
 # %%
 y_pred = clf.predict(X_test)
 confmat = confusion_matrix(y_test, y_pred)
