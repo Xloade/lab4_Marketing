@@ -8,6 +8,7 @@ from scipy import stats
 from sklearn.model_selection import train_test_split
 import numpy as np
 from sklearn.preprocessing import StandardScaler
+import joblib
 # %% get dataset
 df = pd.read_csv("../phpkIxskf.csv", sep=",")
 categorical = [col for col in df.columns if df[col].dtype=="O"]
@@ -50,4 +51,7 @@ y_resampled.value_counts()
 # %% saving changes
 df_resampled.to_csv('preprocessed_train.csv')
 pd.concat([X_test,y_test], axis=1).to_csv('preprocessed_test.csv')
-# %%
+# %% dumps
+
+joblib.dump(scaler, 'scaler.pkl', compress=1)
+joblib.dump(ord_enc, 'encoder.pkl', compress=1)
