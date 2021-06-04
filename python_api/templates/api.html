@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>Model api</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+<body class="h-100">	
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-12 col-lg-6 py-2">
+                <!-- Form -->
+                <form id="model_form" class="border p-4" action="model">
+                    <h2>Inputs</h2>
+                        <div class="form-group row">
+                            <label class="col-4" for="age">Age:</label>
+                            <input class="col-8" type="number"  name="age" id="age" min=0 max=200>
+                        </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-4" for="job">Job:</label>
+                        <select class="col-8" name="job" id="job">
+                            <option value="0">admin.</option>
+                            <option value="1">blue-collar</option>
+                            <option value="2">entrepreneur</option>
+                            <option value="3">housemaid</option>
+                            <option value="4">management</option>
+                            <option value="5">retired</option>
+                            <option value="6">self-employed</option>
+                            <option value="7">services</option>
+                            <option value="8">student</option>
+                            <option value="9">technician</option>
+                            <option value="10">unemployed</option>
+                            <option value="11">unknown</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-4" for="marital_status">Marital status:</label>
+                        <select class="col-8" name="marital_status" id="marital_status">
+                            <option value="0">divorced</option>
+                            <option value="1">married</option>
+                            <option value="2">single</option>
+                        </select>
+                    </div>   
+                    <div class="form-group row">
+                        <label class="col-4" for="education">Education:</label>
+                        <select class="col-8" name="education" id="education">
+                            <option value="0">primary</option>
+                            <option value="1">secondary</option>
+                            <option value="2">tertiary</option>
+                            <option value="3">unknown</option>
+                        </select>
+                    </div>   
+                    <div class="form-group row">
+                        <label class="col-4" for="default">Default:</label>
+                        <input class="col-8" type="checkbox"  name="default" id="default" value='1'>
+                        <input class="col-8" type="hidden"  name="default" id="defaultHidden" value='0'>
+                    </div>  
+                    <div class="form-group row">
+                        <label class="col-4" for="balance">Balance:</label>
+                        <input class="col-8" type="number"  name="balance" id="balance" min=0>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-4" for="housing">Housing:</label>
+                        <input class="col-8" type="checkbox"  name="housing" id="housing" value='1'>
+                        <input class="col-8" type="hidden"  name="housing" id="housingHidden" value='0'>
+                    </div>  
+                    <div class="form-group row">
+                        <label class="col-4" for="loan">Loan:</label>
+                        <input class="col-8" type="checkbox"  name="loan" id="loan" value='1'>
+                        <input class="col-8" type="hidden"  name="loan" id="loanHidden" value='0'>
+                    </div>  
+                    <div class="form-group row">
+                        <label class="col-4" for="contact">Contact:</label>
+                        <select class="col-8" name="contact" id="contact">
+                            <option value="0">cellular</option>
+                            <option value="1">telephone</option>
+                            <option value="2">unknown</option>
+                        </select>
+                    </div>  
+                    <div class="form-group row">
+                        <label class="col-4" for="day">Day:</label>
+                        <input class="col-8" type="number"  name="day" id="day" min=0 max=31>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-4" for="month">Month:</label>
+                        <select class="col-8" name="month" id="month">
+                            <option value="4">jan</option>
+                            <option value="3">feb</option>
+                            <option value="7">mar</option>
+                            <option value="0">apr</option>
+                            <option value="8">may</option>
+                            <option value="6">jun</option>
+                            <option value="5">jul</option>
+                            <option value="1">aug</option>
+                            <option value="11">sep</option>
+                            <option value="10">oct</option>
+                            <option value="9">nov</option>
+                            <option value="2">dec</option>
+                        </select>
+                    </div> 
+                    <div class="form-group row">
+                        <label class="col-4" for="duration">Duration:</label>
+                        <input class="col-8" type="number"  name="duration" id="duration" min=0>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-4" for="campaign">campaign:</label>
+                        <input class="col-8" type="number"  name="campaign" id="campaign" min=0>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-4" for="pdays">pdays:</label>
+                        <input class="col-8" type="number"  name="pdays" id="pdays" min=0>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-4" for="previous">previous:</label>
+                        <input class="col-8" type="number"  name="previous" id="previous" min=0>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-4" for="poutcome">Poutcome:</label>
+                        <select class="col-8" name="poutcome" id="poutcome">
+                            <option value="0">failure</option>
+                            <option value="1">other</option>
+                            <option value="2">success</option>
+                            <option value="3">unknown</option>
+                        </select>
+                    </div> 
+                    <button class="btn btn-primary w-100" id="submit">Submit</button>
+                </form>           	
+                <!-- Form end -->
+            </div>
+            <div class="col-12 col-lg-6 py-2">
+                <div class="border p-4">
+                    <h2>Results</h2>
+                    <div class="row">
+                        <label class="col-4" for="result_class">Predicted class:</label>
+                        <div id="result_class">none</div>
+                    </div>
+                    <div class="row">
+                        <label class="col-4" for="result_probability">Class probability:</label>
+                        <div id="result_probability">none</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        function submitForm(form){
+            var url = form.attr("action");
+            var formData = $(form).serializeArray();
+            jQuery.getJSON(url, formData).done(function (data) {
+                jQuery("#result_class").text(data["result_class"])
+                jQuery("#result_probability").text(data["result_probability"])
+            });
+        }
+        $(document).ready(function () {
+            jQuery(document).on('click','#submit',function(event){
+                document.getElementById('defaultHidden').disabled = document.getElementById("default").checked
+                document.getElementById('housingHidden').disabled = document.getElementById("housing").checked
+                document.getElementById('loanHidden').disabled = document.getElementById("loan").checked
+                submitForm($("#model_form"))
+                event.preventDefault()
+            });
+        });
+    </script>
+</body></html>
